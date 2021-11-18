@@ -5,9 +5,10 @@ Flask==1.0.2
 spacy
 
 #spacy model path
-en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.2.0/en_core_web_lg-3.2.0-py3-none-any.whl
+en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.2.0/en_core_web_md-3.2.0-py3-none-any.whl
 # ./en_core_web_lg-3.2.0.tar.gz
 
 # Automated tests
 pytest==3.0.5
 pytest-cov==2.4.0
+# https://github.com/explosion/spacy-models/releases
