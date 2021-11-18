@@ -13,7 +13,7 @@ ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
 COPY requirements.txt requirements.txt
-COPY en_core_web_lg-3.2.0.tar.gz en_core_web_lg-3.2.0.tar.gz
+# COPY en_core_web_lg-3.2.0.tar.gz en_core_web_lg-3.2.0.tar.gz
 RUN pip3 install -r requirements.txt
 RUN python3 -m spacy download en_core_web_lg
 EXPOSE 5000
