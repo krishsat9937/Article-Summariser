@@ -1,0 +1,12 @@
+# Flask Framework
+Flask==1.0.2
+
+#spacy packages
+spacy>=3.1.0, <3.2.0
+
+#spacy model path
+./en_core_web_lg-3.1.0.tar.gz
+
+# Automated tests
+pytest==3.0.5
+pytest-cov==2.4.0
