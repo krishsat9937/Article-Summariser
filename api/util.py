@@ -11,7 +11,7 @@ from flask import jsonify
 
 
 def auto_summarise(doc, num_sentences=3):
-    nlp = spacy.load("en_core_web_lg")
+    nlp = spacy.load("en_core_web_md")
     doc = nlp(doc.replace("\n",""))
 
     keyword = []
