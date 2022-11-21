@@ -1,7 +1,6 @@
 from flask import Blueprint
 from .views import process_summary
 
-# set method as endpoint
 
 # Create the blueprint for this app
 api = Blueprint('api', __name__, url_prefix='/api')

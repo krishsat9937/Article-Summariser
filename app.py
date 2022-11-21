@@ -1,14 +1,25 @@
-from flask import Flask,jsonify
-from flask import Flask, redirect, url_for, request
+from flask import Flask, jsonify
 from api.routes import api
+from os import environ
+from werkzeug.routing import BaseConverter
+
+
+class WildcardConverter(BaseConverter):
+    regex = r".*?"
+    weight = 200
+
 
 app = Flask(__name__)
+app.url_map.converters["wildcard"] = WildcardConverter
 
-@app.route('/')
+
+@app.route("/")
 def route_default_():
-   return "<h1>Welcome to ML APIs</h1>"
+    return "<h1>Welcome to ML APIs</h1>"
+
 
 app.register_blueprint(api)
 
-if __name__ == '__main__':   
-   app.run()
+if __name__ == "__main__":
+    port = int(environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)

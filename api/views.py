@@ -1,12 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import os, sys
-import re
-from flask import request, jsonify
+
+from flask import jsonify, request
 from .util import auto_summarise
 
-
 def process_summary():
+    """
+    It takes in a POST request with a JSON body containing the text to be summarized and the number of
+    sentences to be returned. It then calls the `auto_summarise` function from the `summarizer` module
+    and returns the summary as a JSON response.
+    
+    :return: a json object with the summary of the text.
+    """
     if request.method == 'POST':
         request_dict = request.get_json(force=True)
         try:

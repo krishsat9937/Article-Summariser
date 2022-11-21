@@ -1,17 +1,25 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import os, sys
-import re, spacy
-import json
-from spacy.lang.en.stop_words import STOP_WORDS
-from string import punctuation
 from collections import Counter
 from heapq import nlargest
-from flask import jsonify
+from string import punctuation
+
+import spacy
+from spacy.lang.en.stop_words import STOP_WORDS
 
 
 def auto_summarise(doc, num_sentences=3):
-    nlp = spacy.load("en_core_web_lg")
+    """
+    It takes a document, tokenizes it, removes stopwords and punctuation, and then uses the remaining
+    words to calculate the sentence strength of each sentence in the document. The sentence strength isØ
+    calculated by adding the normalized frequency of each word in the sentence. The top n sentences with
+    the highest sentence strength are then returned as the summary
+    
+    :param doc: The document to be summarized
+    :param num_sentences: The number of sentences you want in your summary, defaults to 3 (optional)
+    :return: The summary of the text
+    """
+    nlp = spacy.load("en_core_web_md")
     doc = nlp(doc.replace("\n",""))
 
     keyword = []
